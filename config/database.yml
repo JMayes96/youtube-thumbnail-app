@@ -18,12 +18,14 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-   host: 127.0.0.1
+    host: 127.0.0.1
 
 
 development:
   <<: *default
   database: youtube_thumbnail_app_development
+  username: your_postgres_username
+  password: your_postgres_password
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -58,6 +60,8 @@ development:
 test:
   <<: *default
   database: youtube_thumbnail_app_test
+  username: your_postgres_username
+  password: your_postgres_password
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -97,3 +101,4 @@ production:
     <<: *primary_production
     database: youtube_thumbnail_app_production_cable
     migrations_paths: db/cable_migrate
+    
